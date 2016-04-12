@@ -1,0 +1,1 @@
+INSERT INTO ktce.main (data, time) VALUES (:data, now());

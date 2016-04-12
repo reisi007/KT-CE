@@ -18,12 +18,11 @@ function getConnection()
     $mysql_user = 'user';
     $mysql_port = 'port';
     $mysql_password = 'password';
-    $mysql[$mysql_host] = 'localhost';
-    $mysql[$mysql_port] = 3306;
+    $mysql[$mysql_host] = 'mysql';
     $mysql[$mysql_user] = 'root';
     $mysql[$mysql_password] = '1234';
 
-    $connection = new \PDO('mysql:host=' . $mysql[$mysql_host] . ':' . $mysql[$mysql_port] . ';charset=utf8mb4',
+    $connection = new \PDO('mysql:host=' . $mysql[$mysql_host] . ';charset=utf8mb4',
         $mysql[$mysql_user], $mysql[$mysql_password]);
     $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     $connection->beginTransaction();

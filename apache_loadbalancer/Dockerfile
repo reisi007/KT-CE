@@ -3,7 +3,7 @@ FROM ubuntu:latest
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
         apache2 && \
-  a2enmod proxy_balancer proxy_http lbmethod_byrequests
+  a2enmod proxy_balancer proxy_http lbmethod_byrequests headers
 RUN  DEBIAN_FRONTEND=noninteractive  rm -rf /var/lib/apt/lists/*
 RUN mkdir /var/lock/apache2
 RUN a2enmod proxy_balancer proxy_http

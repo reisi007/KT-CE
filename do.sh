@@ -1,9 +1,4 @@
 #!/bin/sh
-echo #
-echo # Build
-echo #
-./build.sh
-echo #
-echo # Run local
-echo #
-./run.sh
+echo Run Apache app & MySQL
+./stop.sh
+./run_mysql.sh &&./run_app.sh

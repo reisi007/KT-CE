@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:14.04
 # Install base packages
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
@@ -10,8 +10,8 @@ RUN apt-get update && \
         php5-gd \
         php5-curl \
         php-pear \
-        php-apc && \
-    rm -rf /var/lib/apt/lists/* && \
+        php-apc
+RUN    rm -rf /var/lib/apt/lists/* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN /usr/sbin/php5enmod mcrypt
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \

@@ -18,9 +18,9 @@ function getConnection()
     $mysql_user = 'user';
     $mysql_port = 'port';
     $mysql_password = 'password';
-    $mysql[$mysql_host] = 'mysql';
+    $mysql[$mysql_host] = '140.78.73.159';
     $mysql[$mysql_user] = 'root';
-    $mysql[$mysql_password] = '1234';
+    $mysql[$mysql_password] = '@@cekt@@';
 
     $connection = new \PDO('mysql:host=' . $mysql[$mysql_host] . ';charset=utf8mb4',
         $mysql[$mysql_user], $mysql[$mysql_password]);

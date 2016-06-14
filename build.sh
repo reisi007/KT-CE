@@ -9,7 +9,6 @@ sudo docker build -t kt-apache apache_app/
 echo \#
 echo \# Building Apache App
 echo \#
-sudo docker build -t kt-loadb apache_loadbalancer/
 cd apache_loadbalancer
 ./build.sh
 echo \#

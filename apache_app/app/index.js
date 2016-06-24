@@ -8,8 +8,16 @@ testApp.controller('MainController', ['$scope', '$interval', '$http', function (
         let text = $scope.text;
         let elem = document.getElementById('textField');
         $http({
-            method: 'GET',
-            url: 'add.php?data=' + text
+            method: 'POST',
+            url: 'add.php',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            transformRequest: function (obj) {
+                var str = [];
+                for (var p in obj)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                return str.join("&");
+            },
+            data: {data: text}
         }).then(function suc(res) {
             if (res.data.result === 1) {
                 elem.MaterialTextfield.change('');
@@ -27,7 +35,6 @@ testApp.controller('MainController', ['$scope', '$interval', '$http', function (
             method: 'GET',
             url: 'get.php'
         }).then(function suc(res) {
-
             $scope.data = res.data;
         }, function err(d) {
             console.log('error update', d);
